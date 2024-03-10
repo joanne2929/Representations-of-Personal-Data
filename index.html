@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Representations of Personal Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #2D2D2D;
+            color: #333;
+        }
+        header {
+            background-color: #2D2D2D;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            padding-top: 80px;
+        }
+        h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+        section {
+            padding: 70px;
+            margin: 20px 0;
+            background-color: #2D2D2D;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h2 {
+            margin-top: 0;
+            font-size: 24px;
+            color: #A2A2A2;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #fff;
+        }
+        a {
+            color: #83cfff;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Representations of Personal Data</h1>
+    </header>
+    
+    <section id="final_design">
+        <h2>Final Design</h2>
+        <img src="Final Design.png" alt="Final Design Image">
+        <p><br>
+            <br>
+            The final design of the project "Representations of Personal Data" is a series of 
+            data visualizations combined. Each data visualization represents a different 
+            perspective of viewing the data. The left side of the final design are two heatmaps 
+            showing the total messages sent and received in 2023 and 2022, with darker color 
+            representing more messages. On the right, the first visualization shows a pie chart 
+            of different message types in the chat history, with the percentages next to each slice. 
+            The second visualization on the right shows the total messages in the chat history over 
+            time, so that I have a general overview of when did we chat the most. Then the third 
+            visualization goes into details on the messages sent and received in 2023 specifically, 
+            since we chat the most in 2023. Lastly, the last visualization on the right shows the 
+            total number of messages sent and received fpr each hour, so that I can see which hour 
+            did my friend and I chat the most. 
+            <br>
+            <br>
+            For this project, I used an unconventional format of my data since usually when people 
+            think of chat history, they would only calculate the number of messages chatted in a time 
+            period, and use a line chart to show different numbers. For my project, instead of a line 
+            chart, I used a heatmap so that I can visualize the number of messages in a year more clearly, 
+            and also see right to the point of which day did we chat the most, which is the darkest color on 
+            the heat map. The last visualization on the right used data parameters that people do not 
+            usually use to analyze their chat history, but I thought it would be a good way to see which 
+            time in a day did my friend and I have the most conversation. The other three data visualizations 
+            are comparably more common for people to analyze, but I also put these visualizations in the design 
+            to make the story more complete, and people could have a whole picture of me and my friend's chat analysis. 
+        </p>
+    </section>
+
+    <section id="data_collection">
+        <h2>Data Collection</h2>
+        <p>For the data collection process of my project, I exported me and my friend's chat history from the 
+            app WeChat. I searched online on the chat export tools and found a <a href="https://github.com/LC044/WeChatMsg">Github page</a> 
+            that lets me export the chat history. The following image shows the exported file. There are a total 
+            of 22296 messages from 2021/12/05 to 2024/02/29. I added a column G to the file to extract the date in 
+            yyyy/mm/dd format without the time, and also added a column H to extract the time of the message with only 
+            the hour as xx o'clock. 
+            <br>
+            <br>
+        </p>
+        <img src="export.png" alt="Data collection" width="70%">
+    </section>
+
+    <section id="process">
+        <h2>Process</h2>
+        <p>With the data file, I created 5 different visualizations. The first visualization shows the percentage of 
+            the message types in the chat history. When exported the data, each message has a message type as number 
+            (column A), I calculated each message types using the COUNTIF function and calculated the percentage of 
+            each type of message. Then I sorted the types from the highest to the lowest, and made a pie chart showing 
+            the percentage of each type of messages. 
+            <br>
+            <br>
+        </p>
+        <div class="image123">
+            <img src="message types.png" alt="Message Types" width="40%" style="float:left">
+            <img src="pie chart.png" alt="Pie Chart" width="53%">
+        </div>
+        <p>
+            <br>
+            Since the exported data also contains a “isSender” parameter that shows whether the message was sent by me in the 
+            left image below, I used these values to create another table that shows the number of messages sent and received 
+            by me for each day, in the right image below. 
+            <br>
+            <br>
+        </p>
+        <div class="image123">
+            <img src="isSender.png" width="24%" style="float:left">
+            <img src="SentReceived.png" width="30%">
+        </div>
+        <p>
+            <br>
+            With this table, I created a chart showing the messages sent and received over time, as well as the total messages, shown 
+            as the first image below. But since the lines are overlapping too much, and has too many spikes, I iterated over it and 
+            decided to use only the total messages for this chart, shown as the second image below. 
+            <br>
+            <br>
+        </p>
+        <div class="image123">
+            <img src="total message 1.png" width="100%">
+            <br>
+            <img src="total message 2.png" width="100%">
+        </div>
+        <p>
+            <br>
+            Then I created another table that shows specifically the number of messages received and sent in each month in 2023, since 
+            I became closer with my friend in 2023 and had more chats. I first took out the months for each date in the Month(helper) 
+            column, then found the number of messages sent and received in each month using the function below. 
+            <br>
+            <br>
+        </p>
+        <img src="month send.png" width="50%">
+        <p>
+            <br>
+            Then I created a monthly messages sent and received in 2023 chart that has all the parameters on it. The messages sent and 
+            received lines are more clear than before. I also added the data labels on top of each month for the specific numbers. 
+            <br>
+            <br>
+        </p>
+        <img src="Monthly messages sent and received in 2023.png" width="100%">
+        <p>
+            <br>
+            Since I added the column of the hour that each message was sent or received, I used the function to calculate all the messages 
+            send and received in each hour.
+            <br>
+            <br>
+        </p>
+        <img src="hours.png" width="100%">
+        <p>
+            <br>
+            With the table I created, I made a chart that shows the number of messages that I sent and received per hour.
+            <br>
+            <br>
+        </p>
+        <img src="Message count per hour.png" width="100%">
+        <p>
+            <br>
+            Lastly, I wanted to make a heatmap to visualize the number of messages sent and received in a year. I followed a 
+            tutorial online and used Tableau to make 2 heatmaps, in 2022 and 2023, since these are the years that the data are 
+            from Jan. to Dec.
+            <br>
+            <br>
+        </p>
+        <img src="heatmap1.png" width="100%">
+        <p>
+            <br>
+            After making all the tables and charts, I used figma to combine all the charts and uniformed each chart’s title 
+            to have the same size and color. 
+            <br>
+            <br>
+        </p>
+        <img src="Final Design.png" width="80%">
+    </section>
+</body>
+</html>
